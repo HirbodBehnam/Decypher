@@ -12,7 +12,7 @@
 #define NumToAdd 23619
 
 using namespace std;
-VBMathsR r,r1;
+VBMathsR r;
 volatile bool publishProggress = false;
 volatile unsigned int kCounter = 0;
 volatile unsigned int k = 0;
@@ -311,10 +311,13 @@ void WithPass(const string FileName, const string Password) {
 			NumberToWrite = (int)c ^ 42;
 			codeForPass += NumberToWrite;
 		}
+		//Free memory
+		Head.~basic_string();
+		HeadS.~vector();
+		tempSplit.~vector();
+		//Set seeds
 		r.Rnd(-1);
 		r.Randomize(GetSeed(Password));
-		r1.Rnd(-1);
-		r1.Randomize(GetSeed(Password));
 		publishProggress = true;
 		future<void> fut1 = async(PublishProccess);
 		//Decrypt every 500,000,000 chars
