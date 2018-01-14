@@ -16,4 +16,4 @@ The idea came from the game [Hacknet](http://www.hacknet-os.com/). However, my e
 - Hacknet uses a simple sum to encrypt every char; Mine uses the rewritten VBMath class to encrypt data.
 - Hacknet encrypts every text character; Mine encrypts every byte.
 - When Hacknet encrypts a file with password, it uses `GetHashCode` on password to get a seed; Mine uses a custom `GetSeed` method to get the seed.[See here](https://github.com/HirbodBehnam/Decypher/blob/master/Decypher/Decypher.cpp#L459)
-- Hacknet stores the password (HashCode) in the encrypted file; Mine does not.
+- Hacknet stores the password (Hash) in the encrypted file; Mine does not.
